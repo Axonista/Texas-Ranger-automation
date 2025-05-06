@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="testng-results">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="reporter-output" type="xs:string" />
+				<xs:element name="suite">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="groups" type="xs:string" />
+							<xs:element name="test" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="class">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="test-method">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="reporter-output" type="xs:string" />
+															</xs:sequence>
+															<xs:attribute name="signature" use="required" />
+															<xs:attribute name="started-at" use="required" />
+															<xs:attribute name="name" use="required" />
+															<xs:attribute name="finished-at" use="required" />
+															<xs:attribute name="duration-ms" type="xs:integer" use="required" />
+															<xs:attribute name="status" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="started-at" use="required" />
+									<xs:attribute name="name" use="required" />
+									<xs:attribute name="finished-at" use="required" />
+									<xs:attribute name="duration-ms" type="xs:integer" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="started-at" use="required" />
+						<xs:attribute name="name" use="required" />
+						<xs:attribute name="finished-at" use="required" />
+						<xs:attribute name="duration-ms" type="xs:integer" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="ignored" type="xs:integer" use="required" />
+			<xs:attribute name="total" type="xs:integer" use="required" />
+			<xs:attribute name="passed" type="xs:integer" use="required" />
+			<xs:attribute name="failed" type="xs:integer" use="required" />
+			<xs:attribute name="skipped" type="xs:integer" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
