@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [MySuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Signin Validation Test(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestFile.signinTest">
+      <class name="TestFile.profileTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="Signin"/>
+          <include name="ProfileTest"/>
         </methods>
-      </class> <!-- TestFile.signinTest -->
+      </class> <!-- TestFile.profileTest -->
     </classes>
-  </test> <!-- Signin Validation Test(failed) -->
-  <test thread-count="5" name="PostSignin Validation Test(failed)">
-    <classes>
-      <class name="TestFile.postsigninTest">
-        <methods>
-          <include name="setup"/>
-          <include name="PostSignin"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- TestFile.postsigninTest -->
-    </classes>
-  </test> <!-- PostSignin Validation Test(failed) -->
-</suite> <!-- Failed suite [MySuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

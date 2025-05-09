@@ -20,7 +20,7 @@ public class signinTest extends BaseTest {
 		signinPage signinObject= new signinPage(driver);
 		signinObject.SigninVisibility();
 		signinObject.Signin_Validations();
-		System.out.println("1st Test Passed");
+		
 
 	}
 

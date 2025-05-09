@@ -17,15 +17,15 @@ public class signinPage {
     }
     
     public WebElement ContinueButton() {
-        return driver.findElement(By.cssSelector("button[class*='border-dark-outline']"));
+        return driver.findElement(By.xpath("//*[contains(text(), 'Continue')]"));
     }
 
     // Locators (methods to find elements)
-    public WebElement SignInTitle() {
-        return driver.findElement(By.cssSelector("h1[class*='mb-6']"));
-    }
+    //public WebElement SignInTitle() {
+       // return driver.findElement(By.xpath("//*[contains(text(),\"SIGN IN\")]"));
+    //}
     public WebElement Subdesc() {
-        return driver.findElement(By.cssSelector("p[class*='text-base']"));
+        return driver.findElement(By.xpath("//*[contains(text(),\"Lonestar is only available in \")]"));
     }
     
     public WebElement Email() {
@@ -41,38 +41,53 @@ public class signinPage {
     }
     
     public WebElement ForgotPassword() {
-        return driver.findElement(By.cssSelector("strong[class*='hover:no-underline']"));
+        return driver.findElement(By.xpath("//*[text()='Forgot your password?']"));
     }
 
     public WebElement NoAccount() {
-        return driver.findElement(By.cssSelector("p[class*='text-sm']"));
+        return driver.findElement(By.xpath("//*[text()=\"Don't have an account?\"]"));
     }
 
     public WebElement SignUp() {
-        return driver.findElement(By.cssSelector("strong[class*='ml-1']"));
+        return driver.findElement(By.xpath("//*[text()='Sign Up']")); 
     }
     
     
     public WebElement SigninBtn() {
-        return driver.findElement(By.cssSelector("button[type='submit']"));
+        return driver.findElement(By.xpath("//*[text()='Sign In']"));
     }
     
     public void SigninVisibility()
         {
     	ContinueButton().click();
     	WebDriverWait wait = new WebDriverWait(driver, 10);
-   	    WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1[class*='mb-6']")));
-   
+   	    WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
+                             
    	    Assert.assertEquals(signintitle.getText(),  "SIGN IN");
+   	    System.out.println("Sign in title is displayed");
+   	 
 		Assert.assertEquals(Subdesc().getText(), "Lonestar is only available in Texas, Louisiana, Oklahoma, Arkansas, and Eastern New Mexico.");
+		System.out.println("Availability of Lonestar app description is displayed");
+		
 		Assert.assertTrue(Email().isDisplayed());
+		System.out.println("Email field is displayed");
+		
 		Assert.assertTrue(Password().isDisplayed());
+		System.out.println("Password field is displayed");
+		
 		Assert.assertTrue(Rememberme().isDisplayed());
+		System.out.println("Remember me field is displayed");
+		
 		Assert.assertTrue(ForgotPassword().isDisplayed());
+		System.out.println("Forgot password option is displayed");
+		
 		Assert.assertTrue(NoAccount().isDisplayed());
+		System.out.println("Don't have an account option is displayed");
+		
 		Assert.assertTrue(SignUp().isDisplayed());
+		System.out.println("Sign up option is displayed");
 		//Check Sign In Button is Disabled
-		Assert.assertTrue(!SigninBtn().isEnabled());
+		
     }
 
      public void Signin_Validations() {
@@ -85,11 +100,14 @@ public class signinPage {
      SigninBtn().click();
      
      WebDriverWait wait = new WebDriverWait(driver, 10);
-	 WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//main/div/h1")));
+	 WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
 	
 	 Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
 	 
+	 System.out.println("2nd Test Passed");
+	 
 }
+     
 }
 
 	

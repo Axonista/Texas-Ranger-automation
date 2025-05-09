@@ -17,7 +17,7 @@ public class homeTest extends BaseTest{
 
 		// Run the homepage validations
 		homepageObject.Homepage_Validations();
-		System.out.println("1st Test Passed");
+		
 
 
 	}
