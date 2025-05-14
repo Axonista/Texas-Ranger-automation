@@ -15,9 +15,9 @@ public class loginTest extends BaseTest {
 	public void Signin() 
 	{
 
-		// Asserting that the elements are visible and text matches the expected values
+		//Create object for homePage
 		homePage homeloginObject = new homePage(driver);
-
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertTrue(homeloginObject.logo().isDisplayed(), "Logo is not displayed");
 		System.out.println("Logo is displayed");
 
@@ -64,7 +64,8 @@ public class loginTest extends BaseTest {
 
 		Assert.assertTrue(loginObject.SignUp().isDisplayed());
 		System.out.println("Sign up option is displayed");
-		//Check Sign In Button is Disabled
+		
+		loginObject.Login();
 
 	}
 
