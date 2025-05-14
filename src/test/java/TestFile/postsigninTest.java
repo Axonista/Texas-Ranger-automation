@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import PageObjectFile.homePage;
 import PageObjectFile.postsinginPage;
-import PageObjectFile.signinPage;
+import PageObjectFile.loginPage;
 
 public class postsigninTest extends BaseTest {
 
@@ -16,9 +16,9 @@ public class postsigninTest extends BaseTest {
 
 		homePage homepageObject = new homePage(driver);
 		homepageObject.Homepage_Validations();
-		signinPage signinObject= new signinPage(driver);
+		loginPage signinObject= new loginPage(driver);
 		signinObject.SigninVisibility();
-		signinObject.Signin_Validations();
+		signinObject.Login();
 		postsinginPage postsigninObject = new postsinginPage(driver);
 		postsigninObject.PostSignin_Validations();
 		

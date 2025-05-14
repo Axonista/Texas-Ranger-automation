@@ -16,14 +16,7 @@ public class profilePage {
 	public profilePage(WebDriver driver) {
 		this.driver = driver;
 	}
-	// Locators
-	//public WebElement ViewProfile() {
-	//	return driver.findElement(By.cssSelector("button[class*='hover:text-dark-on-surface   false']"));
-	//}
-
-	//public WebElement EditProfile() {
-		//return driver.findElement(By.cssSelector("a[href='/account/edit-profile']"));
-	//}
+	
 
 	public WebElement FullName() {
 		return driver.findElement(By.id("name"));
