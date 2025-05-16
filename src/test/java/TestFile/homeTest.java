@@ -12,10 +12,13 @@ public class homeTest extends BaseTest{
 	@Test
 	public void Homepage() {
 		
+		//Test case name
 		logger.info("Test 1 : Validate Homepage elements are displayed and showing Proper text");
-		// Asserting that the elements are visible and text matches the expected values
+		
+		//Create object for homePage file
 		homePage homepageObject = new homePage(driver);
         
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertTrue(homepageObject.logo().isDisplayed(), "Logo is not displayed");
 		logger.info("Logo is displayed");
 		
@@ -33,7 +36,6 @@ public class homeTest extends BaseTest{
 		
 		Assert.assertTrue(homepageObject.goHomeButton().isDisplayed(), "Go Home button is not visible");
 		logger.info("Go Home button is displayed");
-		
 		
 		// Run the homepage validations
 		homepageObject.Homepage_Validations();

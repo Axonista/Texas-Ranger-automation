@@ -17,10 +17,13 @@ public class loginTest extends BaseTest {
 	public void Signin() 
 	{
  
+		//Test case name 
 		logger.info("Test 2 : Validate User is logged in after entering Email and Password succesfully");
-		// Asserting that the elements are visible and text matches the expected values
+		
+		//Create object for homePage file
 		homePage homepageObject = new homePage(driver);
 
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertTrue(homepageObject.logo().isDisplayed(), "Logo is not displayed");
 		logger.info("Logo is displayed");
 
@@ -39,10 +42,16 @@ public class loginTest extends BaseTest {
 		Assert.assertTrue(homepageObject.goHomeButton().isDisplayed(), "Go Home button is not visible");
 		logger.info("Go Home button is displayed");
 
-
+		// Run the homepage validations
 		homepageObject.Homepage_Validations();
+		
+		//Create object for homePage file
 		loginPage loginObject= new loginPage(driver);
+		
+		//Using Explicit wait
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+		
+		//Wait for Sign in  title to be visible and then run next command
 		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
 
 		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
@@ -72,12 +81,14 @@ public class loginTest extends BaseTest {
 		Assert.assertTrue(loginObject.SignUp().isDisplayed());
 		logger.info("Sign up option is displayed");
 
+		//Run login Validations
 		loginObject.Login();
 
 		Assert.assertTrue(loginObject.SigninBtn().isEnabled());
 		logger.info("Sign in button is disabled");
 		loginObject.SigninBtn().click();
 
+		//Wait for Subscribe title to be visible and then run next command
 		WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
 
 		Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");

@@ -61,32 +61,6 @@ public class credentialsupdatePage {
 		return driver.findElement(By.xpath("//*[text()= 'Confirmation Email']"));
 	} 
 
-	public WebElement GmailEmail() {
-		return driver.findElement(By.xpath("input[name='identifier']"));
-	}
-
-	public WebElement GmailNext() {
-		return driver.findElement(By.xpath("//*[text()= 'Next']"));
-	} 
-	public WebElement GmailPassword() {
-		return driver.findElement(By.xpath("//*[text()= 'Next']"));
-	}
-	public WebElement NotNow() {
-		return driver.findElement(By.xpath("//*[text()= 'Not now']"));
-	}
-	public WebElement Cancel() {
-		return driver.findElement(By.xpath("//*[text()= 'Cancel']"));
-	}
-	public WebElement Skip() {
-		return driver.findElement(By.xpath("//*[text()= 'Skip']"));
-	}
-	public WebElement GoogleApps() {
-		return driver.findElement(By.xpath("ul > li:nth-child(3)"));
-	}
-
-
-
-	  
 
 	//public WebElement BackToEditAccount() {
 	//	return driver.findElement(By.xpath("//*[contains(text(),'Back to Edit')]"));

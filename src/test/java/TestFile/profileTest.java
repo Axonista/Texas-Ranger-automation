@@ -25,10 +25,13 @@ public class profileTest extends BaseTest {
 	public void ProfileTest() 
 	{
 
-		logger.info("Test 4 : Validate Full Name is updated succesfully");
-		// Asserting that the elements are visible and text matches the expected values
+		//Test case name 
+		logger.info("Test 2 : Validate User is logged in after entering Email and Password succesfully");
+
+		//Create object for homePage file
 		homePage homepageObject = new homePage(driver);
 
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertTrue(homepageObject.logo().isDisplayed(), "Logo is not displayed");
 		logger.info("Logo is displayed");
 
@@ -47,12 +50,19 @@ public class profileTest extends BaseTest {
 		Assert.assertTrue(homepageObject.goHomeButton().isDisplayed(), "Go Home button is not visible");
 		logger.info("Go Home button is displayed");
 
-
+		// Run the homepage validations
 		homepageObject.Homepage_Validations();
+
+		//Create object for homePage file
 		loginPage loginObject= new loginPage(driver);
+
+		//Using Explicit wait
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		//Wait for Sign in  title to be visible and then run next command
 		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
 
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
 		logger.info("Sign in title is displayed");
 
@@ -80,61 +90,69 @@ public class profileTest extends BaseTest {
 		Assert.assertTrue(loginObject.SignUp().isDisplayed());
 		logger.info("Sign up option is displayed");
 
+		//Run login Validations
 		loginObject.Login();
 
 		Assert.assertTrue(loginObject.SigninBtn().isEnabled());
 		logger.info("Sign in button is disabled");
 		loginObject.SigninBtn().click();
 
+		//Wait for Subscribe title to be visible and then run next command
 		WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
 
 		Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
 		logger.info("Subscribe text is visible after logging in");
 
+		logger.info("✅Login Validations is passed successfully");
 
-		postloginPage postsigninObject = new postloginPage(driver);
-		Assert.assertTrue(postsigninObject.SubscribtionType().isDisplayed());
+		//Create Object for postloginPage
+		postloginPage postloginObject = new postloginPage(driver);
+
+		// Asserting that the elements are visible and text matches the expected values
+		Assert.assertTrue(postloginObject.SubscribtionType().isDisplayed());
 		logger.info("Type of subscription is displayed");
 
-		Assert.assertEquals(postsigninObject.SubscribtionPrice().getText() , "$9.99");
+		Assert.assertEquals(postloginObject.SubscribtionPrice().getText() , "$9.99");
 		logger.info("Price of subscription is displayed");
 
-		Assert.assertEquals(postsigninObject.PerMonth().getText() , "/ per month");
+		Assert.assertEquals(postloginObject.PerMonth().getText() , "/ per month");
 		logger.info("Subscription duration is displayed");
 
-		Assert.assertEquals(postsigninObject.SubscribtionPoint1().getText() , "Unrestricted access to all Live and On-Demand video content");
+		Assert.assertEquals(postloginObject.SubscribtionPoint1().getText() , "Unrestricted access to all Live and On-Demand video content");
 		logger.info("Point 1 of subscription description is displayed");
 
-		Assert.assertEquals(postsigninObject.SubscribtionPoint2().getText() , "Game highlights and replays");
+		Assert.assertEquals(postloginObject.SubscribtionPoint2().getText() , "Game highlights and replays");
 		logger.info("Point 2 of subscription description is displayed");
 
-		Assert.assertEquals(postsigninObject.SubscribtionPoint3().getText() , "News updates stats schedules league standings and more");
+		Assert.assertEquals(postloginObject.SubscribtionPoint3().getText() , "News updates stats schedules league standings and more");
 		logger.info("Point 3 of subscription description is displayed");
 
-		Assert.assertEquals(postsigninObject.Shortdesc().getText() , "*Charged monthly, cancel at anytime");
+		Assert.assertEquals(postloginObject.Shortdesc().getText() , "*Charged monthly, cancel at anytime");
 		logger.info("Short description is displayed");
 
-		Assert.assertTrue(postsigninObject.ProceedBtn().isEnabled());
+		Assert.assertTrue(postloginObject.ProceedBtn().isEnabled());
 		logger.info("Proceed to Payment button is displayed");
 
-		Assert.assertTrue(postsigninObject.SubscribeLater().isDisplayed());
+		Assert.assertTrue(postloginObject.SubscribeLater().isDisplayed());
 		logger.info("Subscribe later option is displayed");
-		postsigninObject.PostSignin_Validations();
-
+		postloginObject.PostSignin_Validations();
+		logger.info("✅Post Login Validations is passed successfully");
+		
+		//Create Object for profilePage
 		profilePage profilepageObject = new profilePage(driver);
+		
+		//Run Profile Validations
 		profilepageObject.Profile_Validations();
 
-
-
+		//Wait for full name field to be visible
 		WebElement fullname = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
-
 		new Actions(driver).click(fullname).keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(System.getenv("FULLNAME")).perform();
 		profilepageObject.SaveChangesBtn().click();
 		Assert.assertEquals(fullname.getAttribute("value") , System.getenv("FULLNAME"));
 		logger.info("Full name is updated successfully");
 		logger.info("✅Profile page Validations is passed successfully");
 
-		
+
 
 
 	}
