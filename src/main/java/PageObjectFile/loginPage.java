@@ -3,9 +3,6 @@ package PageObjectFile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 public class loginPage {
 	
@@ -46,7 +43,7 @@ public class loginPage {
     
     
     public WebElement SigninBtn() {
-        return driver.findElement(By.xpath("//*[text()='Sign In']"));
+        return driver.findElement(By.xpath("//button[@type='submit']"));
     }
     
 
@@ -56,15 +53,8 @@ public class loginPage {
          
      Email().sendKeys(email);
      Password().sendKeys(password);
-     Assert.assertTrue(SigninBtn().isEnabled());
-     SigninBtn().click();
      
-     WebDriverWait wait = new WebDriverWait(driver, 10);
-	 WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
-	
-	 Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
-	 
-	 System.out.println("2nd Test Passed");
+    
 	 
 }
      

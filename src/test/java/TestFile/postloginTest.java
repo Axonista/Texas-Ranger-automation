@@ -1,9 +1,7 @@
 package TestFile;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -13,19 +11,19 @@ import org.testng.annotations.Test;
 
 import PageObjectFile.homePage;
 import PageObjectFile.postloginPage;
-import PageObjectFile.profilePage;
 import PageObjectFile.loginPage;
 
-public class profileTest extends BaseTest {
+public class postloginTest extends BaseTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(homeTest.class);
 
-
 	@Test
-	public void ProfileTest() 
+
+	public void PostSignin() 
 	{
 
-		logger.info("Test 4 : Validate Full Name is updated succesfully");
+
+		logger.info("Test 3 : Validate elements displayed after Login");
 		// Asserting that the elements are visible and text matches the expected values
 		homePage homepageObject = new homePage(driver);
 
@@ -91,6 +89,7 @@ public class profileTest extends BaseTest {
 		Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
 		logger.info("Subscribe text is visible after logging in");
 
+		logger.info("2nd Test Passed");
 
 		postloginPage postsigninObject = new postloginPage(driver);
 		Assert.assertTrue(postsigninObject.SubscribtionType().isDisplayed());
@@ -120,22 +119,7 @@ public class profileTest extends BaseTest {
 		Assert.assertTrue(postsigninObject.SubscribeLater().isDisplayed());
 		logger.info("Subscribe later option is displayed");
 		postsigninObject.PostSignin_Validations();
-
-		profilePage profilepageObject = new profilePage(driver);
-		profilepageObject.Profile_Validations();
-
-
-
-		WebElement fullname = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
-
-		new Actions(driver).click(fullname).keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(System.getenv("FULLNAME")).perform();
-		profilepageObject.SaveChangesBtn().click();
-		Assert.assertEquals(fullname.getAttribute("value") , System.getenv("FULLNAME"));
-		logger.info("Full name is updated successfully");
-		logger.info("✅Profile page Validations is passed successfully");
-
-		
-
+		logger.info("✅Post Login Validations is passed successfully");
 
 	}
 }

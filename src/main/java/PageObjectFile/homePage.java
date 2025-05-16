@@ -39,7 +39,6 @@ public class homePage {
 		
 		ContinueButton().click();
 		
-		System.out.println("1st Test Passed");
 		
 
 	}
