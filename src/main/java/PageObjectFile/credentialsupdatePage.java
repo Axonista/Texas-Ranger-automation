@@ -92,14 +92,15 @@ public class credentialsupdatePage {
 		newemailEdit.sendKeys("saily.dhande1996@gmail.com");
 		UpdateEmailBtn().click();
 		
+		driver.quit();
+		
 		
 		//Open gmail and verify email
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 
-		
-		// Optional: specify the profile if you use multiple profiles (default is usually "Default")
-		options.addArguments("profile-directory=Profile 11");
+		options.addArguments("user-data-dir=C:/Users/YourUser/AppData/Local/Google/Chrome/User Data");
+		options.addArguments("profile-directory=Profile 10");
 
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://mail.google.com");

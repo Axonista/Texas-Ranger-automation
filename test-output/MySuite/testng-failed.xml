@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [MySuite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Signin Validation Test(failed)">
+  <test thread-count="5" name="Login Validation Test(failed)">
     <classes>
-      <class name="TestFile.signinTest">
+      <class name="TestFile.loginTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
           <include name="Signin"/>
         </methods>
-      </class> <!-- TestFile.signinTest -->
+      </class> <!-- TestFile.loginTest -->
     </classes>
-  </test> <!-- Signin Validation Test(failed) -->
-  <test thread-count="5" name="PostSignin Validation Test(failed)">
+  </test> <!-- Login Validation Test(failed) -->
+  <test thread-count="5" name="PostLogin Validation Test(failed)">
     <classes>
-      <class name="TestFile.postsigninTest">
+      <class name="TestFile.postloginTest">
         <methods>
           <include name="setup"/>
           <include name="PostSignin"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- TestFile.postsigninTest -->
+      </class> <!-- TestFile.postloginTest -->
     </classes>
-  </test> <!-- PostSignin Validation Test(failed) -->
+  </test> <!-- PostLogin Validation Test(failed) -->
+  <test thread-count="5" name="Profile Page Validation Test(failed)">
+    <classes>
+      <class name="TestFile.profileTest">
+        <methods>
+          <include name="setup"/>
+          <include name="ProfileTest"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestFile.profileTest -->
+    </classes>
+  </test> <!-- Profile Page Validation Test(failed) -->
 </suite> <!-- Failed suite [MySuite] -->

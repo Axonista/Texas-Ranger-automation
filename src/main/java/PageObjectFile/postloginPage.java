@@ -1,5 +1,6 @@
 package PageObjectFile;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,21 +37,14 @@ public class postloginPage {
 	public WebElement Shortdesc() {
 		return driver.findElement(By.xpath("//*[contains(text(), 'Charged')]"));
 	}
-	public WebElement ProceedBtn() {
+	public WebElement ProceedButtn() {
 		return driver.findElement(By.xpath("//*[text()='Proceed to Payment']"));
 	}
 	public WebElement SubscribeLater() {
 		return driver.findElement(By.xpath("//*[text()='subscribe later']"));
 	}
-	
-	public void PostSignin_Validations()
-	{
-		
-		
-		SubscribeLater().click();
-		
-
+	public WebElement AcoountCreatedSuccessfully() {
+		return driver.findElement(By.xpath("//*[text()='ACCOUNT CREATED SUCCESSFULLY']"));
 	}
 	
-
 }

@@ -3,17 +3,27 @@
   <test name="Homepage Validation Test">
     <classes>
       <class name="TestFile.homeTest"/>
-      
       </classes>
   </test>
-  <test name="Signin Validation Test">
+  
+  <test name="Login Validation Test">
     <classes>
-      <class name="TestFile.signinTest"/>
+      <class name="TestFile.loginTest"/>
       </classes>
   </test>
-  <test name="PostSignin Validation Test">
+  
+  <test name="PostLogin Validation Test">
     <classes>
-      <class name="TestFile.postsigninTest"/>
+      <class name="TestFile.postloginTest"/>
       </classes>
   </test>
+  
+
+  <test name="Profile Page Validation Test">
+    <classes>
+      <class name="TestFile.profileTest"/>
+      </classes>
+  </test>
+ 
+  
 </suite>
