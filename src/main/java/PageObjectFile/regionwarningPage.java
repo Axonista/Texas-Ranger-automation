@@ -11,6 +11,7 @@ import org.testng.Assert;
 import io.github.cdimascio.dotenv.Dotenv;
 public class regionwarningPage {
 	
+	//Use Environment variables from .env file and give them variable names
 	private static final Logger logger = LoggerFactory.getLogger(regionwarningPage.class);
 	private static final Dotenv dotenv = Dotenv.load();
     public static final String EMAIL = dotenv.get("EMAIL");
@@ -24,7 +25,7 @@ public class regionwarningPage {
 	public regionwarningPage(WebDriver driver) {
 		this.driver = driver;
 	}
-	// Locators
+	//Use WebElements to locate elements in variables
 	public WebElement Logo() {
 		return driver.findElement(By.cssSelector("a[href='/']"));
 	}
@@ -60,17 +61,21 @@ public class regionwarningPage {
 	public void Move_To_SigninPage() {
 		try
 		{
+	    //Click on Continue button.
 		ContinueButton().click();
 		logger.info("Continue button is clicked");
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+		
+		//Explicit wait will wait for Sign in title to be visible
 		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text() = 'SIGN IN']")));
-		Assert.assertTrue(signintitle.isDisplayed(), "Subscribe title is not displayed");
-		logger.info("✅Sign in title is displayed");
-		logger.info("✅Region Warning Page validations is passed successfully");
+		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
+		logger.info("Sign in title is displayed");
+		
 		
     } catch (Exception e) {
         try {
-            
+            //If Sign in page is not displayed the this should
+    		//because VPN is not connected to Dallas
             if (!SigninTitle().isDisplayed()) {
                 logger.warn("⚠️ VPN ISSUE: You're outside supported regions. Please connect to a VPN and select location USA - Dallas");
             }

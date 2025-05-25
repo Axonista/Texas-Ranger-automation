@@ -2,7 +2,6 @@ package TestFile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import PageObjectFile.regionwarningPage;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 public class Test1_regionwarningTest extends BaseTest{
@@ -35,6 +34,8 @@ public class Test1_regionwarningTest extends BaseTest{
 		
 		// Run the Region Warning Page Validations
 		homepageObject.Move_To_SigninPage();
+		
+		logger.info("✅Region Warning Page validations is passed successfully");
 		
 	}
 }

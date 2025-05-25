@@ -2,7 +2,6 @@ package PageObjectFile;
 
 
 import java.util.Scanner;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,17 +9,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.cdimascio.dotenv.Dotenv;
 
-public class credentialsupdatePage {
+public class passwordupdatePage {
+	private static final Logger logger = LoggerFactory.getLogger(profilePage.class);
+	private static final Dotenv dotenv = Dotenv.load();
+	public static final String EMAIL = dotenv.get("EMAIL");
+	public static final String PASSWORD = dotenv.get("PASSWORD");
+	public static final String WRONGPASSWORD = dotenv.get("WRONGPASSWORD");
+	public static final String NEWFULLNAME = dotenv.get("NEWFULLNAME");
+	public static final String NEWPASSWORD = dotenv.get("NEWPASSWORD");
+	
 	WebDriver driver;
 
-	public credentialsupdatePage(WebDriver driver) {
+	public passwordupdatePage(WebDriver driver) {
 		this.driver = driver;
 	}
-	// Locators
-
+	
+	//Use WebElements to locate elements in variables
 	public WebElement UpdatePasswordOption() {
 		return driver.findElement(By.xpath("//*[text() = 'Update Password ']"));
 	}
@@ -68,33 +78,52 @@ public class credentialsupdatePage {
 
 	// Method to validate homepage
 
-	public void Credentials_Updation() {
+	public void Password_Updation() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		//String newemail = System.getenv("NewEmail");
-		String password = System.getenv("PASSWORD");
-		String newpassword = System.getenv("NEWPASSWORD");
-
+	
+		//Click on Update Password button
 		UpdatePasswordOption().click();
+		logger.info("Update Password option is clicked");
 		
+		//Explicit wait is used to wait for Current Password field to be clickable
 		WebElement currentpassword = wait.until(ExpectedConditions.elementToBeClickable(By.id("currentPassword")));
 
-		currentpassword.sendKeys(password);
-		NewPassword().sendKeys(newpassword);
-		ConfirmPassword().sendKeys(newpassword);
+		//Enter Current Password
+		currentpassword.sendKeys(PASSWORD);
+		logger.info("Current Password is entered");
+		
+		//Enter New Password
+		NewPassword().sendKeys(NEWPASSWORD);
+		logger.info("New Password is entered");
+		
+		//Enter New Password
+		ConfirmPassword().sendKeys(NEWPASSWORD);
+		logger.info("New Password is entered again");
+		
+		//Click on Update Password Button
 		UpdatePasswordBtn().click();
+		logger.info("Update Password button is clicked");
+		
+		//Explicit wait is used to wait for Back to Edit button to be clickable
 		WebElement backtoeditbtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[span[text()='Back to Edit Account Details']]")));
+		
+		//Click on Back to Edit button
 		backtoeditbtn.click();
+		logger.info("Back to Edit button is clicked");
 
+		
+		
+	}
+	
+	public void Email_Updation()
+	{	
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		UpdateEmailBtnOption().click();
 		WebElement newemailEdit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Enter new email address']")));
 
 		newemailEdit.sendKeys("saily.dhande1996@gmail.com");
 		UpdateEmailBtn().click();
-		
-		driver.quit();
-		
-		
 		//Open gmail and verify email
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();

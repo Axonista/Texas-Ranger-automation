@@ -12,7 +12,7 @@ public class postloginPage {
 	public postloginPage(WebDriver driver) {
 		this.driver = driver;
 	}
-	// Locators
+	//Use WebElements to locate elements in variables
 	public WebElement SubscribtionType() {
 		return driver.findElement(By.xpath("//*[contains(text(),'PREMIUM')]"));
 	}
@@ -34,7 +34,7 @@ public class postloginPage {
 		return driver.findElement(By.xpath("//*[contains(text(), 'News')]"));
 	}
 	
-	public WebElement Shortdesc() {
+	public WebElement Shortdescription() {
 		return driver.findElement(By.xpath("//*[contains(text(), 'Charged')]"));
 	}
 	public WebElement ProceedButtn() {

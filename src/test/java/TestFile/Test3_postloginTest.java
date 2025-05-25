@@ -43,45 +43,40 @@ public class Test3_postloginTest extends BaseTest {
 
 		// Run the Region Warning Page Validations
 		homepageObject.Move_To_SigninPage();
+		logger.info("✅Region Warning Page validations is passed successfully");
 
-		//Using Explicit wait
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-
-		//Wait for Sign in  title to be visible and then run next command
-		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
-
-		//Create object for homePage file
+		//Create object for loginPage file
 		loginPage loginObject= new loginPage(driver);
-		// Asserting that the elements are visible and text matches the expected values
-		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
-		logger.info("Sign in title is displayed");
 
+		// Asserting that the elements are visible and text matches the expected values
 		Assert.assertEquals(loginObject.SubDescription().getText(), "Lonestar is only available in Texas, Louisiana, Oklahoma, Arkansas, and Eastern New Mexico.");
 		logger.info("Availability of Lonestar app description is displayed");
 
-		Assert.assertTrue(loginObject.Email().isDisplayed());
+		Assert.assertTrue(loginObject.Email().isDisplayed(), "Email field is not displayed");
 		logger.info("Email field is displayed");
 
-		Assert.assertTrue(loginObject.Password().isDisplayed());
+		Assert.assertTrue(loginObject.Password().isDisplayed() , "Password field is not dispalyed");
 		logger.info("Password field is displayed");
 
-		Assert.assertTrue(!loginObject.SigninButton().isEnabled());
+		Assert.assertTrue(!loginObject.SigninButton().isEnabled() , "Sign in button is not disabled");
 		logger.info("Password field is disabled");
 
-		Assert.assertTrue(loginObject.Rememberme().isDisplayed());
+		Assert.assertTrue(loginObject.Rememberme().isDisplayed(),"Remember me link is not displayed");
 		logger.info("Remember me field is displayed");
 
-		Assert.assertTrue(loginObject.ForgotPassword().isDisplayed());
+		Assert.assertTrue(loginObject.ForgotPassword().isDisplayed() , "Forgot me link is not displayed");
 		logger.info("Forgot password option is displayed");
 
-		Assert.assertTrue(loginObject.DontHaveAnAccount().isDisplayed());
+		Assert.assertTrue(loginObject.DontHaveAnAccount().isDisplayed(),"Done have an account link is not displayed");
 		logger.info("Don't have an account option is displayed");
 
-		Assert.assertTrue(loginObject.SignUp().isDisplayed());
+		Assert.assertTrue(loginObject.SignUp().isDisplayed() , "Sign up link is not displayed");
 		logger.info("Sign up option is displayed");
 
-		//Run login Validations
+		//Run successful login validations
 		loginObject.testValidLogin();
+		logger.info("✅Login Validations is passed successfully");
+		
 		//Create Object for postloginPage
 		postloginPage postloginObject = new postloginPage(driver);
 
@@ -104,7 +99,7 @@ public class Test3_postloginTest extends BaseTest {
 		Assert.assertEquals(postloginObject.SubscribtionPoint3().getText() , "News updates stats schedules league standings and more");
 		logger.info("Point 3 of subscription description is displayed");
 
-		Assert.assertEquals(postloginObject.Shortdesc().getText() , "*Charged monthly, cancel at anytime");
+		Assert.assertEquals(postloginObject.Shortdescription().getText() , "*Charged monthly, cancel at anytime");
 		logger.info("Short description is displayed");
 
 		Assert.assertTrue(postloginObject.ProceedButtn().isEnabled() , "Procees button is not in enabled state");
@@ -112,11 +107,15 @@ public class Test3_postloginTest extends BaseTest {
 
 		Assert.assertTrue(postloginObject.SubscribeLater().isDisplayed() , "Subscribe late link is not displayed");
 		logger.info("Subscribe later link is displayed");
+
 		postloginObject.SubscribeLater().click();
+		logger.info("Subscribe later link is clicked");
 
 		//Wait for Sign in  title to be visible and then run next command
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement accountcreated = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='ACCOUNT CREATED SUCCESSFULLY']")));
 		Assert.assertEquals(accountcreated.getText() , "ACCOUNT CREATED SUCCESSFULLY");
+		logger.info("Account Created Successfully message is displayed successfully");
 		logger.info("✅Post Login Validations is passed successfully");
 
 	}

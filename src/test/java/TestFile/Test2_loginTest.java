@@ -1,15 +1,10 @@
-package TestFile;import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+package TestFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import PageObjectFile.regionwarningPage;
 import PageObjectFile.loginPage;
-
+import PageObjectFile.regionwarningPage;
 
 public class Test2_loginTest extends BaseTest {
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
@@ -40,20 +35,12 @@ public class Test2_loginTest extends BaseTest {
 
 		// Run the Region Warning Page Validations
 		homepageObject.Move_To_SigninPage();
+		logger.info("✅Region Warning Page validations is passed successfully");
 		
-		//Create object for homePage file
+		//Create object for loginPage file
 		loginPage loginObject= new loginPage(driver);
 
-		//Using Explicit wait
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		
-		//Wait for Sign in  title to be visible and then run next command
-		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
-
 		// Asserting that the elements are visible and text matches the expected values
-		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
-		logger.info("Sign in title is displayed");
-
 		Assert.assertEquals(loginObject.SubDescription().getText(), "Lonestar is only available in Texas, Louisiana, Oklahoma, Arkansas, and Eastern New Mexico.");
 		logger.info("Availability of Lonestar app description is displayed");
 
@@ -80,15 +67,12 @@ public class Test2_loginTest extends BaseTest {
 
 		//Run successful login validations
 		loginObject.testValidLogin();
-
-		//Wait for Subscribe title to be visible and then run next command
-		WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
-		Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
-		logger.info("Subscribe text is visible after logging in");
 		logger.info("✅Login Validations is passed successfully");
-	}
 
+	}
 }
+
+
 
 
 

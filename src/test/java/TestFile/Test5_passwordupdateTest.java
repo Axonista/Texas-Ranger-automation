@@ -8,16 +8,28 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import PageObjectFile.passwordupdatePage;
 import PageObjectFile.regionwarningPage;
+import io.github.cdimascio.dotenv.Dotenv;
+import PageObjectFile.loginPage;
 import PageObjectFile.postloginPage;
 import PageObjectFile.profilePage;
-import PageObjectFile.loginPage;
 
-public class Test4_profileTest extends BaseTest {
-	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
+public class Test5_passwordupdateTest extends BaseTest {
+	
+	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);	
+	private static final Dotenv dotenv = Dotenv.load();
+	public static final String EMAIL = dotenv.get("EMAIL");
+	public static final String PASSWORD = dotenv.get("PASSWORD");
+	public static final String WRONGPASSWORD = dotenv.get("WRONGPASSWORD");
+	public static final String NEWFULLNAME = dotenv.get("NEWFULLNAME");
+	public static final String NEWPASSWORD = dotenv.get("NEWPASSWORD");	
+	
 	@Test(testName = "FullNameUpdate", description = "Verify that full name is updated successfully on Accounts Page")
-	public void ProfileTest() throws InterruptedException 
+	
+	public void CredentialsUpdateTest()
 	{
+	
 		//Create object for homePage file
 		regionwarningPage homepageObject = new regionwarningPage(driver);
 
@@ -42,40 +54,47 @@ public class Test4_profileTest extends BaseTest {
 
 		// Run the Region Warning Page Validations
 		homepageObject.Move_To_SigninPage();
-		logger.info("✅Region Warning Page validations is passed successfully");
 
-		//Create object for loginPage file
+		//Using Explicit wait
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+
+		//Wait for Sign in  title to be visible and then run next command
+		WebElement signintitle = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SIGN IN']")));
+
+		//Create object for homePage file
 		loginPage loginObject= new loginPage(driver);
-
 		// Asserting that the elements are visible and text matches the expected values
+		Assert.assertEquals(signintitle.getText(),  "SIGN IN");
+		logger.info("Sign in title is displayed");
+
 		Assert.assertEquals(loginObject.SubDescription().getText(), "Lonestar is only available in Texas, Louisiana, Oklahoma, Arkansas, and Eastern New Mexico.");
 		logger.info("Availability of Lonestar app description is displayed");
 
-		Assert.assertTrue(loginObject.Email().isDisplayed(), "Email field is not displayed");
+		Assert.assertTrue(loginObject.Email().isDisplayed());
 		logger.info("Email field is displayed");
 
-		Assert.assertTrue(loginObject.Password().isDisplayed() , "Password field is not dispalyed");
+		Assert.assertTrue(loginObject.Password().isDisplayed());
 		logger.info("Password field is displayed");
 
-		Assert.assertTrue(!loginObject.SigninButton().isEnabled() , "Sign in button is not disabled");
+		Assert.assertTrue(!loginObject.SigninButton().isEnabled());
 		logger.info("Password field is disabled");
 
-		Assert.assertTrue(loginObject.Rememberme().isDisplayed(),"Remember me link is not displayed");
+		Assert.assertTrue(loginObject.Rememberme().isDisplayed());
 		logger.info("Remember me field is displayed");
 
-		Assert.assertTrue(loginObject.ForgotPassword().isDisplayed() , "Forgot me link is not displayed");
+		Assert.assertTrue(loginObject.ForgotPassword().isDisplayed());
 		logger.info("Forgot password option is displayed");
 
-		Assert.assertTrue(loginObject.DontHaveAnAccount().isDisplayed(),"Done have an account link is not displayed");
+		Assert.assertTrue(loginObject.DontHaveAnAccount().isDisplayed());
 		logger.info("Don't have an account option is displayed");
 
-		Assert.assertTrue(loginObject.SignUp().isDisplayed() , "Sign up link is not displayed");
+		Assert.assertTrue(loginObject.SignUp().isDisplayed());
 		logger.info("Sign up option is displayed");
 
-		//Run successful login validations
+		//Run login Validations
 		loginObject.testValidLogin();
 		logger.info("✅Login Validations is passed successfully");
-
+		
 		//Create Object for postloginPage
 		postloginPage postloginObject = new postloginPage(driver);
 
@@ -106,21 +125,21 @@ public class Test4_profileTest extends BaseTest {
 
 		Assert.assertTrue(postloginObject.SubscribeLater().isDisplayed() , "Subscribe late link is not displayed");
 		logger.info("Subscribe later link is displayed");
-
 		postloginObject.SubscribeLater().click();
-		logger.info("Subscribe later link is clicked");
 
 		//Wait for Sign in  title to be visible and then run next command
-		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement accountcreated = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='ACCOUNT CREATED SUCCESSFULLY']")));
 		Assert.assertEquals(accountcreated.getText() , "ACCOUNT CREATED SUCCESSFULLY");
-		logger.info("Account Created Successfully message is displayed successfully");
 		logger.info("✅Post Login Validations is passed successfully");
 
-		//Create object for profilePage file
 		profilePage profilepageObject = new profilePage(driver);
 		profilepageObject.Full_Name_Update();
 		
 		logger.info("✅Profile page Validations is passed successfully");
+
+		passwordupdatePage crdupdateObject = new passwordupdatePage(driver);
+		crdupdateObject.Password_Updation();
+		logger.info("✅Password Update Validations is passed successfully");
 	}
+
 }

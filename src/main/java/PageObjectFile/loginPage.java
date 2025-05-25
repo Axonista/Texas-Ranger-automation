@@ -11,6 +11,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class loginPage {
 
+	//Use Environment variables from .env file and give them variable names
 	private static final Logger logger = LoggerFactory.getLogger(loginPage.class);
 	private static final Dotenv dotenv = Dotenv.load();
 	public static final String EMAIL = dotenv.get("EMAIL");
@@ -24,6 +25,7 @@ public class loginPage {
 	public loginPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	//Use WebElements to locate elements in variables
 	public WebElement SubDescription() {
 		return driver.findElement(By.xpath("//*[contains(text(), 'Lonestar is only available in ')]"));
 	}
@@ -63,35 +65,53 @@ public class loginPage {
 	{
 		Assert.assertTrue(!SigninButton().isEnabled());
 		logger.info("Sign in button is disabled");
+		
+		//Email address should be entered
 		Email().sendKeys(EMAIL);
+		
+		//Password should be entered
 		Password().sendKeys(WRONGPASSWORD);
 		Assert.assertTrue(SigninButton().isEnabled());
 		logger.info("Sign in button is enabled");
+		
+		//Sign in button is clicked
 		SigninButton().click();
 		WebDriverWait wait = new WebDriverWait(driver, 10);
+		
+		//Wait for the error message to be displayed
 		WebElement errormessage = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(), 'Invalid')]")));
 		Assert.assertTrue(errormessage.isDisplayed(), "Error message is not displayed");
-		logger.info("Invalid username or password");
+		logger.info("Invalid username or password message is displayed successfully");
 	}
 
 	public void testValidLogin() {
-		Assert.assertTrue(!SigninButton().isEnabled() , "Sign in button is disabled");  
+		Assert.assertTrue(!SigninButton().isEnabled() , "Sign in button is not disabled");  
 		logger.info("Sign in button is disabled");
+		
+		//Email address should be entered
 		Email().sendKeys(EMAIL);
+		logger.info("Email addres is entered successfully");
+		
+		//Password should be entered
 		Password().sendKeys(PASSWORD);
-		Assert.assertTrue(SigninButton().isEnabled() , "Sign in button is enabled");
+		logger.info("Password is entered successfully");
+		Assert.assertTrue(SigninButton().isEnabled() , "Sign in button is not enabled");
 		logger.info("Sign in button is enabled");
+		
+		//Sign in button is clicked
 		SigninButton().click();
+		logger.info("Sign in button is clicked");
 		
 		//Wait for Subscribe title to be visible and then run next command
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		WebElement subscribe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='SUBSCRIBE']")));
 		Assert.assertEquals(subscribe.getText(), "SUBSCRIBE");
 		logger.info("Subscribe text is visible after logging in");
-		logger.info("✅Login Validations is passed successfully");
+		
 
 	}
 }
+
 
 
 
