@@ -1,43 +1,44 @@
 Prerequisites :
-* Java JDK 17
-* Eclipse IDE
-* Maven 3.0
-* Chrome browser and compatible ChromeDriver(Ensure ChromeDriver version matches your installed Chrome browser)
-* VPN should be connected to USA - Dallas otherwise actions will not work in script.
-Setup Instructions : Steps to Pull Project from Git into Eclipse . Clone a Git Project Using Eclipse Git Integration (EGit)
-1. Open Eclipse
-2. Go to File → Import
-3. Choose: Git → Projects from Git . Click Next.
-4. Select Clone URI. Click Next.
-5. Enter Repository URI Paste your Git repository URL : https://github.com/Axonista/Texas-Ranger-automation
-6. Enter credentials if it's a private repo. Click Next.
-7. Select branche to clone( main). Click Next.
-8. Choose a local directory to clone the repo into. Click Finish
-9. After cloning, Eclipse will ask: Import Existing Projects
-10. Select your project folder.
-11. Click Finish.
+#Java JDK 17
+#Eclipse IDE
+#Maven 3.0
+#Using WebDriverManager for testing.
+#When running "Test1_regionwarningTest" if test fails after clicking on continue button or after clicking Sign in page does not appear, its because VPN is not connected.
+VPN should be connected to USA - Dallas otherwise actions will not work in script.
+#Framework : TestNG
+#Environment variables are stored in .env file
 
-    Save Environment variables in Eclipse:
-    1. Click Run - > Run configurations.
-    2. Click on Environment variables.
-    3. Click on Add.
-    4. Enter the name and Value.
-    5. Click on OK.
-    6. Click on Apply.
-   
-    Environment variables:
-    Name: EMAIL  Value : saily.dhande10@gmail.com
-    Name: PASSWORD  Value : S@@ily1996
-    Name: NEWPASSWORD  Value : S@ily1996
-    Name: FULLNAME  Value : Saily Dhande
-    
-    
-   
-       
-Choose a local directory to clone the repo into Click Finish
+  
+#Setup Instructions : Steps to Pull Project from Git into any IDE and run tests.
+• Clone the Repository
+   Open a terminal or command prompt and run:
+   git clone https://github.com/your-username/your-repo.git
+   cd /Users/sailydhande/git/repository/sailyassignment
+   This downloads the project into a folder named repository (or whatever your repo is called).
+
+• Check for Build Tool (Maven)
+   Look for one of these files in the root of the project : pom.xml(These files tell the IDE or CLI how to build and run the project.)
+
+• Open in Any IDE
+   IntelliJ IDEA / Eclipse / VS Code
+   You don’t need to import manually — most modern IDEs auto-detect Maven or Gradle.
+
+   Maven Project :
+   Open the project folder.
+   IDE will detect the pom.xml and prompt you to import it.
+   If not prompted, use:
+   -IntelliJ: File > Open → select pom.xml
+   -Eclipse: File > Import > Existing Maven Projects
+   -VS Code: Install Java Extension Pack → open the folder
+
+• Build the Project : mvn clean install
+• Run the App or Tests : mvn test
+
+ 
+#Test Reporting:
 Post-import Steps Java Build Path: Right-click → Properties → Java Build Path → Verify JDK version is Java 17. Maven Update: Right-click → Maven → Update Project.
 Run Tests: If testng.xml is present, right-click → Run As → TestNG Suite
 Test Report :
-1. Click on test_output - > index.html.
-2. Right click to see options and click Open With -> Web Browser.
-3. Test Report will open in browser.
+• Click on sailyassignment -> test_output -> index.html.
+• Right click to see options and click Open With -> Web Browser.
+• Test Report will open in browser.
