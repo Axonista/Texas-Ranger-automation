@@ -12,7 +12,7 @@ VPN should be connected to USA - Dallas otherwise actions will not work in scrip
 #Setup Instructions : Steps to Pull Project from Git into any IDE and run tests.
 • Clone the Repository
    Open a terminal or command prompt and run:
-   git clone https://github.com/your-username/your-repo.git
+   git 
    cd /Users/sailydhande/git/repository/sailyassignment
    This downloads the project into a folder named repository (or whatever your repo is called).
 
