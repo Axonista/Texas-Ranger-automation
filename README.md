@@ -12,7 +12,7 @@ VPN should be connected to USA - Dallas otherwise actions will not work in scrip
 #Setup Instructions : Steps to Pull Project from Git into any IDE and run tests.
 • Clone the Repository
    Open a terminal or command prompt and run:
-   git https://github.com/Axonista/Texas-Ranger-automation.git
+   git clone https://github.com/Axonista/Texas-Ranger-automation.git
    cd /Users/sailydhande/git/repository/sailyassignment
    This downloads the project into a folder named repository (or whatever your repo is called).
 
@@ -21,7 +21,7 @@ VPN should be connected to USA - Dallas otherwise actions will not work in scrip
 
 • Open in Any IDE
    IntelliJ IDEA / Eclipse / VS Code
-   You don’t need to import manually — most modern IDEs auto-detect Maven or Gradle.
+   You don’t need to import manually — most modern IDEs auto-detect Maven.
 
    Maven Project :
    Open the project folder.
@@ -29,7 +29,7 @@ VPN should be connected to USA - Dallas otherwise actions will not work in scrip
    If not prompted, use:
    -IntelliJ: File > Open → select pom.xml
    -Eclipse: File > Import > Existing Maven Projects
-   -VS Code: Install Java Extension Pack → open the folder
+   -VS Code: Install Java Extension Pack → open the folder.
 
 • Build the Project : mvn clean install
 • Run the App or Tests : mvn test
