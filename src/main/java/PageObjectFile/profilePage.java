@@ -36,7 +36,7 @@ public class profilePage {
 	}
 
 	//Method to update Full Name
-	public void Full_Name_Update()
+	public void Full_Name_Update(String NewFullname)
 	{
 		//Wait for View Profile button to be visible and then run next command
 		WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -57,7 +57,7 @@ public class profilePage {
 		WebElement fullname = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("name")));
 
 		//Click on Full Name field and Enter the name
-		new Actions(driver).click(fullname).keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(NEWFULLNAME).perform();
+		new Actions(driver).click(fullname).keyDown(Keys.COMMAND).sendKeys("a").keyUp(Keys.COMMAND).sendKeys(NewFullname).perform();
 		logger.info("Full name is entered successfully");
 
 		//Click on Save button
@@ -65,7 +65,7 @@ public class profilePage {
 		logger.info("Save Button is clicked successfully");
 
 		//Validate that entered new name is same as in environment variable NEWFULLNAME
-		Assert.assertEquals(fullname.getAttribute("value"),NEWFULLNAME);
+		Assert.assertEquals(fullname.getAttribute("value"),NewFullname);
 		logger.info("Full name is updated successfully");
 	}
 }

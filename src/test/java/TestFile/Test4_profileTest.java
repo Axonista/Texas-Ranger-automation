@@ -12,10 +12,17 @@ import PageObjectFile.regionwarningPage;
 import PageObjectFile.postloginPage;
 import PageObjectFile.profilePage;
 import PageObjectFile.loginPage;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class Test4_profileTest extends BaseTest {
+	
+	private static final Dotenv dotenv = Dotenv.load();
+	public static final String NEWFULLNAME_Test4 = dotenv.get("NEWFULLNAME_Test4");
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
-	@Test(testName = "FullNameUpdate", description = "Verify that full name is updated successfully on Accounts Page")
+	@Test(
+			testName = "FullNameUpdate", 
+			description = "Verify that full name is updated successfully on Accounts Page"
+			)
 	public void ProfileTest() throws InterruptedException 
 	{
 		//Create object for homePage file
@@ -119,7 +126,7 @@ public class Test4_profileTest extends BaseTest {
 
 		//Create object for profilePage file
 		profilePage profilepageObject = new profilePage(driver);
-		profilepageObject.Full_Name_Update();
+		profilepageObject.Full_Name_Update(NEWFULLNAME_Test4);
 		
 		logger.info("✅Profile page Validations is passed successfully");
 	}

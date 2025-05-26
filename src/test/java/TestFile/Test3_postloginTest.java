@@ -16,7 +16,10 @@ import PageObjectFile.loginPage;
 public class Test3_postloginTest extends BaseTest {
 
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
-	@Test(testName = "PostLoginTest", description = "Verify all the elements on Subscription card after successful login")
+	@Test(
+			testName = "PostLoginTest", 
+			description = "Verify all the elements on Subscription card after successful login"
+			)
 	public void PostLoginTest() 
 	{
 		//Create object for homePage file

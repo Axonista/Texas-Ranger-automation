@@ -8,7 +8,10 @@ import PageObjectFile.regionwarningPage;
 
 public class Test2_loginTest extends BaseTest {
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
-	@Test(testName = "ValidLoginTest", description = "Verify successful login with valid credentials")
+	@Test(
+			testName = "ValidLoginTest", 
+			description = "Verify successful login with valid credentials"
+			)
 	public void ValidLoginTest() 
 	{
 		//Create object for homePage file

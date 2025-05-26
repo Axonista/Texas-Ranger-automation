@@ -7,7 +7,10 @@ import org.slf4j.LoggerFactory;
 public class Test1_regionwarningTest extends BaseTest{
 	
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
-	@Test(testName = "ValidateWarningPage", description = "Validation of all elements on Region Warning Page")
+	@Test(
+			testName = "ValidateWarningPage", 
+			description = "Validation of all elements on Region Warning Page"
+			)
 	public void RegionWarningTest() {
 		
 		//Create object for homePage file

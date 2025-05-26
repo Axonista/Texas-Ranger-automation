@@ -14,7 +14,10 @@ import PageObjectFile.loginPage;
 
 public class Test6_negativeloginTest extends BaseTest{
 	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);
-	@Test(testName = "InvalidLoginTest", description = "Verify unsuccessful login with invalid credentials")
+	@Test(
+			testName = "InvalidLoginTest", 
+			description = "Verify unsuccessful login with invalid credentials"
+			)
 	public void Negativelogin() 
 	{
 		//Create object for homePage file

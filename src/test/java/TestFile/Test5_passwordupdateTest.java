@@ -17,15 +17,18 @@ import PageObjectFile.profilePage;
 
 public class Test5_passwordupdateTest extends BaseTest {
 	
-	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);	
 	private static final Dotenv dotenv = Dotenv.load();
+	public static final String NEWFULLNAME_Test5 = dotenv.get("NEWFULLNAME_Test5");
+	private static final Logger logger = LoggerFactory.getLogger(Test1_regionwarningTest.class);	
 	public static final String EMAIL = dotenv.get("EMAIL");
 	public static final String PASSWORD = dotenv.get("PASSWORD");
 	public static final String WRONGPASSWORD = dotenv.get("WRONGPASSWORD");
-	public static final String NEWFULLNAME = dotenv.get("NEWFULLNAME");
 	public static final String NEWPASSWORD = dotenv.get("NEWPASSWORD");	
 	
-	@Test(testName = "FullNameUpdate", description = "Verify that full name is updated successfully on Accounts Page")
+	@Test(
+			testName = "FullNameUpdate", 
+			description = "Verify that full name is updated successfully on Accounts Page"
+			)
 	
 	public void CredentialsUpdateTest()
 	{
@@ -133,7 +136,7 @@ public class Test5_passwordupdateTest extends BaseTest {
 		logger.info("✅Post Login Validations is passed successfully");
 
 		profilePage profilepageObject = new profilePage(driver);
-		profilepageObject.Full_Name_Update();
+		profilepageObject.Full_Name_Update(NEWFULLNAME_Test5);
 		
 		logger.info("✅Profile page Validations is passed successfully");
 
