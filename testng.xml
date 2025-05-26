@@ -27,7 +27,7 @@
  
   <test name="Credentials update Validation Test">
     <classes>
-      <class name="TestFile.Test5_credentialsupdateTest"/>
+      <class name="TestFile.Test5_passwordupdateTest"/>
       </classes>
   </test>
   
