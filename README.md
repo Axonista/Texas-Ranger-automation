@@ -8,6 +8,8 @@ VPN should be connected to USA - Dallas otherwise actions will not work in scrip
 #Framework : TestNG
 #Environment variables are stored in .env file
 
+Note: I you run Test4_profileTest , this will update the Full Name. If you try to run Test5_passwordupdateTest , it will fail as in this test Full Name updation validations are also there. So NEWFULLNAME will be same which is already in full name field. So Save button will not get enabled. The test will fail because Save Button is not clickable.
+
   
 #Setup Instructions : Steps to Pull Project from Git into any IDE and run tests.
 • Clone the Repository
