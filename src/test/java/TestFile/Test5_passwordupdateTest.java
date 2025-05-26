@@ -91,7 +91,7 @@ public class Test5_passwordupdateTest extends BaseTest {
 		Assert.assertTrue(loginObject.SignUp().isDisplayed());
 		logger.info("Sign up option is displayed");
 
-		//Run login Validations
+		//Run valid login Validations
 		loginObject.testValidLogin();
 		logger.info("✅Login Validations is passed successfully");
 		

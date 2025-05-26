@@ -46,5 +46,5 @@ public class postloginPage {
 	public WebElement AcoountCreatedSuccessfully() {
 		return driver.findElement(By.xpath("//*[text()='ACCOUNT CREATED SUCCESSFULLY']"));
 	}
-	
+
 }

@@ -59,9 +59,6 @@ public class passwordupdatePage {
 		return driver.findElement(By.xpath("//*[text()='Update Email ']"));
 	} 
 
-	//public WebElement NewEmail() {
-	//	return driver.findElement(By.xpath("input[id='email']"));
-	//}
 
 	public WebElement UpdateEmailBtn() {
 		return driver.findElement(By.xpath("//*[text()='Update Email Address']"));
@@ -72,12 +69,8 @@ public class passwordupdatePage {
 	} 
 
 
-	//public WebElement BackToEditAccount() {
-	//	return driver.findElement(By.xpath("//*[contains(text(),'Back to Edit')]"));
-	//}
 
-	// Method to validate homepage
-
+	// Method to validate Password Updation
 	public void Password_Updation() {
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);

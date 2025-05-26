@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-25T21:35:01 IST" name="Default suite" finished-at="2025-05-25T21:35:59 IST" duration-ms="58693">
+  <suite started-at="2025-05-26T11:40:27 IST" name="Default suite" finished-at="2025-05-26T11:41:33 IST" duration-ms="65614">
     <groups>
     </groups>
-    <test started-at="2025-05-25T21:35:01 IST" name="Default test" finished-at="2025-05-25T21:35:59 IST" duration-ms="58693">
-      <class name="TestFile.Test4_profileTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestFile.Test4_profileTest@38d8f54a]" started-at="2025-05-25T21:35:01 IST" name="setup" finished-at="2025-05-25T21:35:15 IST" duration-ms="13904" status="PASS">
+    <test started-at="2025-05-26T11:40:27 IST" name="Default test" finished-at="2025-05-26T11:41:33 IST" duration-ms="65614">
+      <class name="TestFile.Test5_passwordupdateTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestFile.Test5_passwordupdateTest@409bf450]" started-at="2025-05-26T11:40:27 IST" name="setup" finished-at="2025-05-26T11:40:42 IST" duration-ms="14597" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="ProfileTest()[pri:0, instance:TestFile.Test4_profileTest@38d8f54a]" started-at="2025-05-25T21:35:15 IST" name="ProfileTest" description="Verify that full name is updated successfully on Accounts Page" finished-at="2025-05-25T21:35:59 IST" duration-ms="44494" status="PASS">
+        <test-method signature="CredentialsUpdateTest()[pri:0, instance:TestFile.Test5_passwordupdateTest@409bf450]" started-at="2025-05-26T11:40:42 IST" name="CredentialsUpdateTest" description="Verify that full name is updated successfully on Accounts Page" finished-at="2025-05-26T11:41:33 IST" duration-ms="50713" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ProfileTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestFile.Test4_profileTest@38d8f54a]" started-at="2025-05-25T21:35:59 IST" name="tearDown" finished-at="2025-05-25T21:35:59 IST" duration-ms="210" status="PASS">
+        </test-method> <!-- CredentialsUpdateTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestFile.Test5_passwordupdateTest@409bf450]" started-at="2025-05-26T11:41:33 IST" name="tearDown" finished-at="2025-05-26T11:41:33 IST" duration-ms="199" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- TestFile.Test4_profileTest -->
+      </class> <!-- TestFile.Test5_passwordupdateTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

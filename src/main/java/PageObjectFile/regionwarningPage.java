@@ -57,7 +57,7 @@ public class regionwarningPage {
 	public WebElement SigninTitle() {
 		return driver.findElement(By.xpath("//*[text() = 'SUBSCRIBE']"));
 	}
-	// Method to validate homepage
+	// Method to validate Region warning page is moved to sign in page
 	public void Move_To_SigninPage() {
 		try
 		{

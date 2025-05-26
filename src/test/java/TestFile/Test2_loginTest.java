@@ -65,7 +65,7 @@ public class Test2_loginTest extends BaseTest {
 		Assert.assertTrue(loginObject.SignUp().isDisplayed() , "Sign up link is not displayed");
 		logger.info("Sign up option is displayed");
 
-		//Run successful login validations
+		//Run valid login validations
 		loginObject.testValidLogin();
 		logger.info("✅Login Validations is passed successfully");
 

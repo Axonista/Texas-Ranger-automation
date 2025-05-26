@@ -35,6 +35,7 @@ public class profilePage {
 		return driver.findElement(By.xpath("//*[text()= 'Save Changes']"));
 	}
 
+	//Method to update Full Name
 	public void Full_Name_Update()
 	{
 		//Wait for View Profile button to be visible and then run next command
@@ -68,3 +69,4 @@ public class profilePage {
 		logger.info("Full name is updated successfully");
 	}
 }
+

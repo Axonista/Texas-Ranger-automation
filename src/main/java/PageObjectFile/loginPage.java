@@ -61,6 +61,7 @@ public class loginPage {
 		return driver.findElement(By.xpath("//*[contains(text(), 'Invalid')]"));
 	}
 
+	//Method to invalidate login with Valid Credentials
 	public void testInvalidLogin()
 	{
 		Assert.assertTrue(!SigninButton().isEnabled());
@@ -84,6 +85,7 @@ public class loginPage {
 		logger.info("Invalid username or password message is displayed successfully");
 	}
 
+	//Method to validate login with Valid Credentials
 	public void testValidLogin() {
 		Assert.assertTrue(!SigninButton().isEnabled() , "Sign in button is not disabled");  
 		logger.info("Sign in button is disabled");
